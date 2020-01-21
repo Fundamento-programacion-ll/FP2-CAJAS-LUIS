@@ -19,3 +19,7 @@
 1. cc
 2. cc
 3. cc
+
+LUIS [CLICK AQUI ITQ ](http://itq.edu.ec/)
+
+![google](https://smid.com.bo/wp-content/uploads/2019/06/Google-presenta-nuevas-herramientas-dirigidas-al-marketing-y-publicidad-en-Me%CC%81xico-.jpg)
