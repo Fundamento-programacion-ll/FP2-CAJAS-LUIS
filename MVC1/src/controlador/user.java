@@ -29,10 +29,18 @@ public class user {
     }
     
     public String listaPersonas(){
-        for (Object persona : listaPersonas) {
-            System.err.println(Object);
+//        listaPersonas.add("hola");
+//        listaPersonas.add("que");
+//        listaPersonas.add("hace");
+        String lista = "";
+        for (int i = 0; i < listaPersonas.size(); i++) {
+            System.out.println(listaPersonas.get(i));
+                    lista += listaPersonas.get(i).toString()+"";
         }
-        listaPersonas.get(1);
-        return "";
+//        for (Object persona : listaPersonas) {
+//            System.err.println(persona);
+//        }
+//        listaPersonas.get(1);
+        return lista;
     }
 }

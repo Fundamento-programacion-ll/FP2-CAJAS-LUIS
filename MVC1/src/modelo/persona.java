@@ -95,6 +95,12 @@ public class persona {
     public void setEstadoCivil(boolean EstadoCivil) {
         this.EstadoCivil = EstadoCivil;
     }
+    
+     @Override
+    public String toString() {
+        return 
+     "nombre:" + this.getNombre();
+    }
 
 
 
