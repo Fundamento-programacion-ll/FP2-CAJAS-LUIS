@@ -23,3 +23,29 @@
 LUIS [CLICK AQUI ITQ ](http://itq.edu.ec/)
 
 ![google](https://smid.com.bo/wp-content/uploads/2019/06/Google-presenta-nuevas-herramientas-dirigidas-al-marketing-y-publicidad-en-Me%CC%81xico-.jpg)
+
+
+## codigo  en un recuadro para copiar
+
+
+```JavaScritp
+var a =  'hola';
+```
+
+## Tablas
+
+ │Edad│Nombre│
+
+ │----│------│
+
+ ## Lineas
+ ***
+ ---
+ ___
+
+ ## Videos
+
+ <a href="https://www.youtube.com/watch?feature=player_embedded&v=Qa2Yah47sFM" target="_blank">
+ <img src="https://img.youtube.com/vi/Qa2Yah47sFM/0.jpg"></img></a>
+
+ [![imagen videos](https://img.youtube.com/vi/Qa2Yah47sFM/0.jpg)](https://www.youtube.com/watch?feature=player_embedded&v=Qa2Yah47sFM)
