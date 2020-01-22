@@ -28,15 +28,15 @@ LUIS [CLICK AQUI ITQ ](http://itq.edu.ec/)
 ## codigo  en un recuadro para copiar
 
 
-```JavaScritp
+```Java
 var a =  'hola';
 ```
 
 ## Tablas
 
- │Edad│Nombre│
-
- │----│------│
+| Tables   |      Are      |  Cool |
+|----------|:-------------:|------:|
+| col 1 is |  left-aligned | $1600 |
 
  ## Lineas
  ***
@@ -49,3 +49,5 @@ var a =  'hola';
  <img src="https://img.youtube.com/vi/Qa2Yah47sFM/0.jpg"></img></a>
 
  [![imagen videos](https://img.youtube.com/vi/Qa2Yah47sFM/0.jpg)](https://www.youtube.com/watch?feature=player_embedded&v=Qa2Yah47sFM)
+
+ ##linkear Imagen Pendiente
