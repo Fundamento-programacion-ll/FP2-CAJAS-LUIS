@@ -14,6 +14,7 @@ public class articulo {
     String descripcion;
     double precio;
 
+    
     public String getNombre() {
         return nombre;
     }
