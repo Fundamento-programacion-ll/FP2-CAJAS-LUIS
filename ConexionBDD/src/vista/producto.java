@@ -168,15 +168,17 @@ public class producto extends javax.swing.JFrame {
     private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
        nuevoArticulo.setNombre(txtFieldNombre.getText());
        nuevoArticulo.setDescripcion(txtAreaDescripcion.getText());
-       double precio = 0;
-       precio = Double.parseDouble(txtFieldPrecio.getText());
+       float precio = 0;
+       precio = Float.parseFloat(txtFieldPrecio.getText());
        nuevoArticulo.setPrecio(precio);
        
        articulocontrolador.ingresarArticulos(nuevoArticulo);
     }//GEN-LAST:event_btn_agregarActionPerformed
 
     private void btn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarActionPerformed
-        
+        txtFieldNombre.setText("");
+        txtAreaDescripcion.setText("");
+        txtFieldPrecio.setText("");
     }//GEN-LAST:event_btn_limpiarActionPerformed
 
     /**

@@ -7,6 +7,7 @@ package controador;
 
 import conexion.conector;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,7 +29,7 @@ public class controladorArticulo {
             ps = conexion.getConxion().prepareStatement(sqlInsert);
             ps.setString(1,nuevoArticulo.getNombre());
             ps.setString(2, nuevoArticulo.getDescripcion());
-            ps.setDouble(3, nuevoArticulo.getPrecio());
+            ps.setFloat(3, nuevoArticulo.getPrecio());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null,"Datos ingresados correctamente");
         } catch (SQLException ex) {
@@ -37,4 +38,28 @@ public class controladorArticulo {
             Logger.getLogger(controladorArticulo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void buscarArticulos(articulo buscarArticulo){
+    String sqlselect = "select * from articulos where idArticulo = ?";
+        ResultSet rs = null;
+        ps.setInt(1, 2);
+        
+    
+    
+        try {
+            ps = conexion.getConxion().prepareStatement(sqlselect);
+            ps.setInt(1, 2);
+              rs = ps.executeQuery();
+              while(rs.next()){
+                  //1 es el id
+                  System.out.println(rs.setString(2));
+                  System.out.println(rs.getString(3));
+                  System.out.println(rs.getFloat(4));
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(controladorArticulo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+ }
 }
+
