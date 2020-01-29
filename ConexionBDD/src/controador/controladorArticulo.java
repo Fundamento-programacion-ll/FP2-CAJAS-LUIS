@@ -21,7 +21,7 @@ import modelo.articulo;
 public class controladorArticulo {
     conector conexion = new conector();
     PreparedStatement ps = null;
-    
+    ResultSet rs = null;
     public void ingresarArticulos(articulo nuevoArticulo){
         String sqlInsert = "insert into articulos(nombre,descripcion,precio) values(?,?,?)";
         try {
@@ -38,28 +38,72 @@ public class controladorArticulo {
             Logger.getLogger(controladorArticulo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void buscarArticulos(articulo buscarArticulo){
-    String sqlselect = "select * from articulos where idArticulo = ?";
-        ResultSet rs = null;
-        ps.setInt(1, 2);
+   
+public void BuscarDatosPorIdNombre
+        (String tipoBusqueda, String valorABuscar) throws SQLException{ //
+        if (tipoBusqueda.equalsIgnoreCase("ID")) {
+           int IdArticulo = Integer.parseInt(valorABuscar);
+           String sqlSelectID = 
+           "select * from articulos where idArticulo = ?";            
+                ps = conexion
+                        .getConxion()
+                        .prepareStatement(sqlSelectID);
+                ps.setInt(1, IdArticulo);
+                rs  = ps.executeQuery();
+                while (rs.next()) {                    
+                    System.out.println("nombre: "+rs.getString(2));
+                    System.out.println("descripcion: "+rs.getString(3));
+                    System.out.println("precio: "+rs.getFloat(4));
+                }                      
+        }
         
-    
-    
+        if (tipoBusqueda.equalsIgnoreCase("nombre")) {
+            // SELECT * FROM Customers
+            //WHERE CustomerName LIKE '%mar';
+            String sqlSelectID = 
+           "select * from articulos where nombre LIKE "+"'%"+valorABuscar+"%'"+"";
+            System.out.println(sqlSelectID);
+                ps = conexion
+                        .getConxion()
+                        .prepareStatement(sqlSelectID);
+                //ps.setString(1, valorABuscar);
+                rs  = ps.executeQuery();
+                while (rs.next()) {                    
+                    System.out.println("nombre: "+rs.getString(2));
+                    System.out.println("descripcion: "+rs.getString(3));
+                    System.out.println("precio: "+rs.getFloat(4));
+                }
+        }
+        
+        if (tipoBusqueda.equalsIgnoreCase("ninguno")) {
+            String sqlSelectID = 
+           "select * from articulos";            
+                ps = conexion
+                        .getConxion()
+                        .prepareStatement(sqlSelectID);                
+                rs  = ps.executeQuery();
+                while (rs.next()) {                    
+                    System.out.println("nombre: "+rs.getString(2));
+                    System.out.println("descripcion: "+rs.getString(3));
+                    System.out.println("precio: "+rs.getFloat(4));
+                }
+        }
+    }
+         public void ActualizarArticulos(articulo valorActualizar){
+        String sqlUpdate= "UPDATE articulos SET nombre=?, descripcion=?, precio=?"
+                + "WHERE id=?";
         try {
-            ps = conexion.getConxion().prepareStatement(sqlselect);
-            ps.setInt(1, 2);
-              rs = ps.executeQuery();
-              while(rs.next()){
-                  //1 es el id
-                  System.out.println(rs.setString(2));
-                  System.out.println(rs.getString(3));
-                  System.out.println(rs.getFloat(4));
-            
+            ps=conexion.getConxion().prepareStatement(sqlUpdate);
+             ps.setString(2,valorActualizar.getNombre());
+            ps.setString(3, valorActualizar.getDescripcion());
+            ps.setFloat(4, valorActualizar.getPrecio());
+            ps.setInt(1, valorActualizar.getId());
+            ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(controladorArticulo.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
     }
- }
+    
 }
+
 

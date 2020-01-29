@@ -30,19 +30,19 @@
               <Component id="btn_buscar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
-              <Component id="txt_fieldbus" min="-2" pref="146" max="-2" attributes="0"/>
-              <EmptySpace pref="128" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="134" max="32767" attributes="0"/>
+              <Component id="txt_buscar" min="-2" pref="146" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-              <Component id="txt_fieldbus" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <Component id="txt_buscar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="check_1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_buscar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -56,11 +56,12 @@
     <Component class="javax.swing.JComboBox" name="check_1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="id"/>
-            <StringItem index="1" value="nombre"/>
-            <StringItem index="2" value="descripcion"/>
-            <StringItem index="3" value="precio"/>
+          <StringArray count="5">
+            <StringItem index="0" value="ninguno"/>
+            <StringItem index="1" value="id"/>
+            <StringItem index="2" value="nombre"/>
+            <StringItem index="3" value="descripcion"/>
+            <StringItem index="4" value="precio"/>
           </StringArray>
         </Property>
       </Properties>
@@ -68,12 +69,15 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_fieldbus">
+    <Component class="javax.swing.JTextField" name="txt_buscar">
     </Component>
     <Component class="javax.swing.JButton" name="btn_buscar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Buscar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_buscarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

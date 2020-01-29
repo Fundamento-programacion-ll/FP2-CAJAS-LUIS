@@ -5,12 +5,19 @@
  */
 package vista;
 
+import controador.controladorArticulo;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import modelo.articulo;
+
 /**
  *
  * @author Luis Cajas
  */
 public class listarArticulos extends javax.swing.JFrame {
-
+articulo buscarArticulo = new articulo();
+        controladorArticulo articulocontrolador = new controladorArticulo();
     /**
      * Creates new form listarArticulos
      */
@@ -28,14 +35,19 @@ public class listarArticulos extends javax.swing.JFrame {
     private void initComponents() {
 
         check_1 = new javax.swing.JComboBox<>();
-        txt_fieldbus = new javax.swing.JTextField();
+        txt_buscar = new javax.swing.JTextField();
         btn_buscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        check_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "id", "nombre", "descripcion", "precio" }));
+        check_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ninguno", "id", "nombre", "descripcion", "precio" }));
 
         btn_buscar.setText("Buscar");
+        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -47,17 +59,17 @@ public class listarArticulos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_buscar)
                 .addGap(49, 49, 49))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addComponent(txt_fieldbus, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(128, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(134, Short.MAX_VALUE)
+                .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(120, 120, 120))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(txt_fieldbus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(42, 42, 42)
+                .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(check_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_buscar))
@@ -66,6 +78,21 @@ public class listarArticulos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+//        String item = check_1.getSelectedItem().toString();
+//        System.out.println("item " + item);
+//        String valorABuscar = txt_buscar.getText();
+//        articulocontrolador.BuscarDatosPorIdNombre(item, valorABuscar); // item cb, valor a buscar
+          String item = check_1.getSelectedItem().toString();
+        System.out.println("item " + item);
+        String valorABuscar = txt_buscar.getText();
+       try {
+           articulocontrolador.BuscarDatosPorIdNombre(item, valorABuscar); // item cb, valor a buscar
+       } catch (SQLException ex) {
+           Logger.getLogger(listarArticulos.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_btn_buscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -105,6 +132,6 @@ public class listarArticulos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_buscar;
     private javax.swing.JComboBox<String> check_1;
-    private javax.swing.JTextField txt_fieldbus;
+    private javax.swing.JTextField txt_buscar;
     // End of variables declaration//GEN-END:variables
 }

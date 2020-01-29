@@ -10,11 +10,20 @@ package modelo;
  * @author Luis Cajas
  */
 public class articulo {
+    int id;
     String nombre;
     String descripcion;
     ////Es recomendable usar tipo float para utilizar decimales
 //    double precio;
     float precio;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
     public String getNombre() {
         return nombre;
