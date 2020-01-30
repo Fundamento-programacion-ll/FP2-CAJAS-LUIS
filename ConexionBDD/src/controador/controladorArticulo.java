@@ -9,6 +9,8 @@ import conexion.conector;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -89,20 +91,54 @@ public void BuscarDatosPorIdNombre
                 }
         }
     }
-         public void ActualizarArticulos(articulo valorActualizar){
-        String sqlUpdate= "UPDATE articulos SET nombre=?, descripcion=?, precio=?"
-                + "WHERE id=?";
-        try {
-            ps=conexion.getConxion().prepareStatement(sqlUpdate);
-             ps.setString(2,valorActualizar.getNombre());
-            ps.setString(3, valorActualizar.getDescripcion());
-            ps.setFloat(4, valorActualizar.getPrecio());
-            ps.setInt(1, valorActualizar.getId());
-            ps.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(controladorArticulo.class.getName()).log(Level.SEVERE, null, ex);
+        
+//        public ArrayList obtenerdatos() throws SQLException{
+//             ArrayList<String> listaNombres = new ArrayList<>();
+//        String selectDatos = "select * from articulos";
+//        ps = conexion.getConxion().prepareStatement(selectDatos);
+//        rs = ps.executeQuery();
+//        while (rs.next()) {                        
+//            listaNombres.add(rs.getString(2));
+//        }
+//        return listaNombres;
+//        }
+        
+       public ArrayList obtenerDatos() throws SQLException{
+        ArrayList<articulo> listaNombres = new ArrayList<>();        
+        String selectDatos = "select * from articulos";
+        ps = conexion.getConxion().prepareStatement(selectDatos);
+        rs = ps.executeQuery();        
+        while (rs.next()) {            
+            articulo art = new articulo();
+            art.setNombre(rs.getString(2));
+            art.setDescripcion(rs.getString(3));
+            art.setPrecio(rs.getInt(4));
+            listaNombres.add(art);
         }
+        return listaNombres;
     }
+       
+       public void actualizar(){
+       String SQLupdate = "select ";
+       }
+
+       
+        
+        
+//        public void ActualizarArticulos(articulo valorActualizar){
+//        String sqlUpdate= "UPDATE articulos SET nombre=?, descripcion=?, precio=?"
+//                + "WHERE id=?";
+//        try {
+//            ps=conexion.getConxion().prepareStatement(sqlUpdate);
+//             ps.setString(2,valorActualizar.getNombre());
+//            ps.setString(3, valorActualizar.getDescripcion());
+//            ps.setFloat(4, valorActualizar.getPrecio());
+//           
+//            ps.executeUpdate();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(controladorArticulo.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
     
 }
 
