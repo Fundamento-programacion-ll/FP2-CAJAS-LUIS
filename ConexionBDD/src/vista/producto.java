@@ -228,7 +228,7 @@ public class producto extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_limpiarActionPerformed
 
     private void btn_upActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_upActionPerformed
-        setEnabled(false);
+        
         
 
 //valorActualizar.setId(cb.getSelectedIndex());
