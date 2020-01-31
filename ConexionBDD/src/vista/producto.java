@@ -61,7 +61,7 @@ public class producto extends javax.swing.JFrame {
         btn_agregar = new javax.swing.JButton();
         btn_limpiar = new javax.swing.JButton();
         btn_up = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_Eliminar = new javax.swing.JButton();
         cb = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -105,7 +105,12 @@ public class producto extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Eliminar");
+        btn_Eliminar.setText("Eliminar");
+        btn_Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_EliminarActionPerformed(evt);
+            }
+        });
 
         cb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombres" }));
         cb.addItemListener(new java.awt.event.ItemListener() {
@@ -141,7 +146,7 @@ public class producto extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(txtFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btn_Eliminar)
                 .addGap(40, 40, 40)
                 .addComponent(btn_limpiar)
                 .addGap(45, 45, 45))
@@ -182,7 +187,7 @@ public class producto extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_limpiar)
-                            .addComponent(jButton2))
+                            .addComponent(btn_Eliminar))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -228,6 +233,14 @@ public class producto extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_limpiarActionPerformed
 
     private void btn_upActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_upActionPerformed
+       valorActualizar.setNombre(txtFieldNombre.getText());
+       valorActualizar.setDescripcion(txtAreaDescripcion.getText());
+       
+       float precio = 0;
+       precio = Float.parseFloat(txtFieldPrecio.getText());
+       valorActualizar.setPrecio(precio);
+       
+       articulocontrolador.ActualizarArticulos(valorActualizar);
         
         
 
@@ -257,6 +270,7 @@ public class producto extends javax.swing.JFrame {
                 listaNombres = articulocontrolador.obtenerDatos();
                 for (articulo art : listaNombres) {
                     if (art.getNombre().equals(evt.getItem().toString())) {
+
                         txtFieldNombre.setText(art.getNombre());
                         txtAreaDescripcion.setText(art.getDescripcion());
                         txtFieldPrecio.setText(String.valueOf(art.getPrecio()));
@@ -270,6 +284,10 @@ public class producto extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_cbItemStateChanged
+
+    private void btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarActionPerformed
+  articulocontrolador.EliminarART();
+    }//GEN-LAST:event_btn_EliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,11 +325,11 @@ public class producto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Eliminar;
     private javax.swing.JButton btn_agregar;
     private javax.swing.JButton btn_limpiar;
     private javax.swing.JButton btn_up;
     private javax.swing.JComboBox<String> cb;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

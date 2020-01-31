@@ -118,27 +118,44 @@ public void BuscarDatosPorIdNombre
         return listaNombres;
     }
        
-       public void actualizar(){
-       String SQLupdate = "select ";
-       }
-
        
         
+   
+        public void ActualizarArticulos(articulo valorActualizar){
+        String sqlUpdate= "UPDATE articulos SET  nombre=?, descripcion=?, precio=?" + " WHERE idArticulo=?";
         
-//        public void ActualizarArticulos(articulo valorActualizar){
-//        String sqlUpdate= "UPDATE articulos SET nombre=?, descripcion=?, precio=?"
-//                + "WHERE id=?";
-//        try {
-//            ps=conexion.getConxion().prepareStatement(sqlUpdate);
-//             ps.setString(2,valorActualizar.getNombre());
-//            ps.setString(3, valorActualizar.getDescripcion());
-//            ps.setFloat(4, valorActualizar.getPrecio());
-//           
-//            ps.executeUpdate();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(controladorArticulo.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
+            try {
+                ps=conexion.getConxion().prepareStatement(sqlUpdate);
+                ps.setInt(4, 2);
+                ps.setString(1,valorActualizar.getNombre());
+                ps.setString(2, valorActualizar.getDescripcion());
+                ps.setFloat(3, valorActualizar.getPrecio());
+                System.out.println(""+valorActualizar.getNombre());
+                System.out.println(""+valorActualizar.getDescripcion());
+                System.out.println(""+valorActualizar.getPrecio());
+                ps.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Datos actualizados correctamente");
+            } catch (SQLException ex) {
+                System.out.println(""+ex);
+                JOptionPane.showMessageDialog(null,"No se pudieron actualizar los datos");
+            }
+    }
+       
+       public void EliminarART(){
+       String sqlDelete = "DELETE FROM articulos WHERE idArticulo = ?";
+       
+      
+        try {
+            ps=conexion.getConxion().prepareStatement(sqlDelete);
+             ps.setInt(1, 1);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(controladorArticulo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           
+       
+       
+       }
     
 }
 
