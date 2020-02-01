@@ -18,6 +18,7 @@ public class Herencia {
         // TODO code application logic here
         perro perrito = new perro(10, "Chuguagua","masculino", "simurdiera");
         perrito.datosPerro();
+       
         System.out.println(""+ perrito.sumaPerro(1, 2));
 //        perrito.sumaPerro(1, 2);
         
