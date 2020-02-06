@@ -5,17 +5,17 @@
  */
 package clases;
 
+import java.awt.Canvas;
 import java.awt.Graphics;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 /**
  *
  * @author Luis Cajas
  */
-public abstract class FIGURA extends JPanel{
+public abstract class FIGURA extends Canvas{
     
-    public abstract void dibujo(Graphics g);
+    public abstract void paint(Graphics g);
     
    
 

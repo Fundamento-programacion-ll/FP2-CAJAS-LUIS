@@ -94,7 +94,7 @@ public class Punto extends FIGURA {
     }
 
     @Override
-    public void dibujo(Graphics g) {
+    public void paint(Graphics g) {
         g.setColor(Color.RED);
         g.fillOval(this.x, this.y, 20, 20);
     }
@@ -103,4 +103,6 @@ public class Punto extends FIGURA {
     public String toString() {
         return "puntos: [ x = " + this.x + ", y = " + this.y + " ]";
     }
+
+   
 }

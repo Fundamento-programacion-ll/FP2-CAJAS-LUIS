@@ -33,21 +33,50 @@ public class ClasePrincipal {
     }
 
     public static void Opciones() {
-        String seleccion = JOptionPane.showInputDialog(null, "Ingrese o que desea dibujar:" + "\n1.Punto" + "\n2.Circulo");
+        JFrame ventana = new JFrame();
+        String seleccion = JOptionPane.showInputDialog(null, "Ingrese o que desea dibujar:" + "\n1.Punto" + "\n2.Circulo"+"\n3.Cuadrado"+"\n4.Rectangulo"+"\n5.Cilindro");
         
         if ("punto".equalsIgnoreCase(seleccion)) {
             Punto pto = new Punto();
             System.out.println(pto);
-            JFrame ventana = new JFrame();
+
             ventana.add(pto);
             ventana.setSize(700, 400);
             ventana.setVisible(true);
             ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        } else if ("Circulo".equalsIgnoreCase(seleccion)) {
+        } else if ("circulo".equalsIgnoreCase(seleccion)) {
            Circulo cir = new Circulo();
            System.out.println(cir);
-        }else{
-           System.out.println("No existe esa opcion");
+
+            ventana.add(cir);
+            ventana.setSize(700, 400);
+            ventana.setVisible(true);
+            ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }else if ("cuadrado".equalsIgnoreCase(seleccion)){
+            Cuadrado cua = new Cuadrado();
+            System.out.println(cua);
+
+            ventana.add(cua);
+            ventana.setSize(700, 400);
+            ventana.setVisible(true);
+            ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+           
+        }else if ("rectangulo".equalsIgnoreCase(seleccion)){
+            Rectangulo rect = new Rectangulo();
+            System.out.println(rect);
+
+            ventana.add(rect);
+            ventana.setSize(700, 400);
+            ventana.setVisible(true);
+            ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }else if ("cilindro".equalsIgnoreCase(seleccion)){
+            Cilindro cil = new Cilindro();
+            System.out.println(cil);
+
+            ventana.add(cil);
+            ventana.setSize(700, 400);
+            ventana.setVisible(true);
+            ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
     }
 }
