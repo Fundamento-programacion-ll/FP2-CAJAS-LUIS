@@ -5,22 +5,33 @@
  */
 package Comparadores;
 
+import java.util.StringTokenizer;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Luis Cajas
  */
-public class provincia {
+public class provincias {
 
     private String nombreProvincia;
     private int numeroHabitantes;
 
-    public provincia() {
+    public provincias() {
+        String datos;
+        datos = JOptionPane.showInputDialog(null, "Ingrese los datos separados por punto y coma");
+        StringTokenizer  tokens = new StringTokenizer(datos,";");
+        this.nombreProvincia = tokens.nextToken();
+        this.numeroHabitantes = Integer.parseInt(tokens.nextToken());        
     }
-
-    public provincia(String nombreProvincia, int numeroHabitantes) {
+        
+    public provincias(String nombreProvincia, int numeroHabitantes) {
         this.nombreProvincia = nombreProvincia;
         this.numeroHabitantes = numeroHabitantes;
     }
+    
+    
+        
 
     public String getNombreProvincia() {
         return nombreProvincia;
@@ -40,9 +51,8 @@ public class provincia {
 
     @Override
     public String toString() {
-        return "Nombre de la provincia" + this.getNombreProvincia()+ " \n Numero de habitantes: "+this.getNumeroHabitantes();
+        return "Nombre: "+ getNombreProvincia()+" habitantes: "+getNumeroHabitantes();
     }
-    
     
 
 }

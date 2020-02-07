@@ -15,20 +15,33 @@ import javax.swing.JOptionPane;
 public class MainComparador {
     public static void main(String[] args){
         
-       
-        String nom_provincia;
-        int num_habitantes;
-        provincia pro = new provincia();
-        pais pa = new pais();
-        String datos = JOptionPane.showInputDialog(null, "Ingrese los valores del punto separados por coma");
-        StringTokenizer tokens = new StringTokenizer(datos, ",");     
-        nom_provincia = tokens.nextToken();
-        pro.setNombreProvincia(nom_provincia);
-        num_habitantes = Integer.parseInt(tokens.nextToken());
-        pro.setNumeroHabitantes(num_habitantes);
-        pa.agregarProvincia(pro);
+          String salida="";
+        pais p  = new pais();
+        p.setListaProvincias();
+        salida += "Lista Provincias: \n"+p.toString();
+        System.out.println(salida);
         
-        System.out.println(pa);
+        p.ordenarPorNombreProvincia();
+        salida += "Lista Provincias: \n"+p.toString();
+        System.out.println(salida);
         
+         p.ordenarpornumerodeHabitantes();
+        salida += "Lista Habitantes: \n"+p.toString();
+        System.out.println(salida);
+//        System.out.println(p);
+//        String nom_provincia;
+//        int num_habitantes;
+//        provincias pro = new provincias();
+//        pais pa = new pais();
+//        String datos = JOptionPane.showInputDialog(null, "Ingrese los valores del punto separados por coma");
+//        StringTokenizer tokens = new StringTokenizer(datos, ",");     
+//        nom_provincia = tokens.nextToken();
+//        pro.setNombreProvincia(nom_provincia);
+//        num_habitantes = Integer.parseInt(tokens.nextToken());
+//        pro.setNumeroHabitantes(num_habitantes);
+//        pa.agregarProvincia(pro);
+//        
+//        System.out.println(pa);
+//        
     }
 }

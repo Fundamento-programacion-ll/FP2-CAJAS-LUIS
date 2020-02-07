@@ -6,6 +6,9 @@
 package Comparadores;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.StringTokenizer;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,26 +16,56 @@ import java.util.ArrayList;
  */
 public class pais {
 
-    private ArrayList<provincia> listarProvincias;
+     private ArrayList<provincias> listaProvincias;
+  
 
     public pais() {
-       
+        this.listaProvincias = new ArrayList<>();
+        
     }
 
-    public pais(ArrayList<provincia> listarProvincias) {
-        this.listarProvincias = listarProvincias;
+    public pais(ArrayList<provincias> listaProvincias) {
+        this.listaProvincias = listaProvincias;
+      
     }
 
-    public ArrayList<provincia> getListarProvincias() {
-        return listarProvincias;
+    
+    public ArrayList<provincias> getListaProvincias() {
+        return listaProvincias;
     }
 
-    public void setListarProvincias(ArrayList<provincia> listarProvincias) {
-        this.listarProvincias = listarProvincias;
+    public void setListaProvincias() {
+        int opcion ;
+        provincias provincia;
+        do {            
+            provincia = new provincias();
+            agregarProvincia(provincia);
+            opcion = JOptionPane.showConfirmDialog(null, "Mas Provincias", "Continuar",JOptionPane.YES_NO_CANCEL_OPTION);
+        } while (opcion==JOptionPane.YES_NO_CANCEL_OPTION);        
     }
     
-    public void agregarProvincia(provincia provincia){
-       this.listarProvincias.add(provincia);
+    
+    
+    public void agregarProvincia(provincias provincia){
+        this.listaProvincias.add(provincia);
     }
+    
+    
+    public void ordenarPorNombreProvincia(){
+        // ordenar la lista de objetos por el nombre
+        Collections.sort(listaProvincias, new Comparador());
+    }
+    
+    public void ordenarpornumerodeHabitantes(){
+        //ordenar por numero de habitantes
+         Collections.sort(listaProvincias, new Comparador());
+        
+    }
+    
 
+    @Override
+    public String toString() {
+        return "Lista provincias \n"+listaProvincias;
+    }
+    
 }
