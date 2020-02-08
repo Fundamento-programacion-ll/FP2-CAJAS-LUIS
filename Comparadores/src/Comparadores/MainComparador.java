@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class MainComparador {
     public static void main(String[] args){
         
-          String salida="";
+        String salida="";
         pais p  = new pais();
         p.setListaProvincias();
         salida += "Lista Provincias: \n"+p.toString();
@@ -24,7 +24,6 @@ public class MainComparador {
         p.ordenarPorNombreProvincia();
         salida += "Lista Provincias: \n"+p.toString();
         System.out.println(salida);
-        
          p.ordenarpornumerodeHabitantes();
         salida += "Lista Habitantes: \n"+p.toString();
         System.out.println(salida);
