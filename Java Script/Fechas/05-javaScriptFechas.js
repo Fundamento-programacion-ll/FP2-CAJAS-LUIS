@@ -1,4 +1,4 @@
-var arreglo = [
+/*var arreglo = [
     {
         nombre: "Luis",
         apellido: "Cajas",
@@ -75,6 +75,60 @@ console.log(usuarioEncontrado);
 eliminar(arreglo, "Juan");
 
 console.log(arreglo);
+*/
+
+//////////////Fechas
+const moment = require("moment");
+var fecha = new Date();
+console.log(fecha);
+console.log(fecha.getDate());
+console.log(fecha.getDay());
+console.log(fecha.getMonth()+1);
+console.log(fecha.getUTCFullYear());
+console.log(fecha.getDay()+"/"+(fecha.getMonth()+1)+"/"+fecha.getUTCFullYear());
+console.log(`dia: ${fecha.getDay()}, mes: ${fecha.getMonth()+1}, año: ${fecha.getUTCFullYear()}`);
+moment.locale("es"); 
+console.log(moment().format('dddd'));
+const horaActual = moment().format('h:mm:ss a');
+console.log(moment().format(horaActual));
+//console.log(moment().add(3, "hour").toString());
+console.log(moment().subtract(3, "hour").toString());
+console.log(fecha.toISOString());
+console.log(fecha.toDateString());
+console.log(fecha.toUTCString());
+
+//Start Of Time
+//console.log(moment().startOf("minutes").toString());
+console.log(moment().toObject().milliseconds);
+console.log(typeof moment().toObject()["years"]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
